@@ -1,5 +1,5 @@
 class Carro constructor(
-    private val motor: MotorCombustao
+    private val motor: Motor
 ){
     var cor: String? = null
 
@@ -16,12 +16,12 @@ class Carro constructor(
             !motor.status() -> {
                 println("Ligue o carro primeiro!")
             }
-            !motor.temCombustivel() -> {
+            !motor.temAutonomia() -> {
                 println("Coloque combustível")
                 motor.desligar()
             }
             else -> {
-                motor.gastandoCombustivel()
+                motor.gastando()
                 println("Carro em movimento")
             }
         }

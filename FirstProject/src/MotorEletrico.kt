@@ -1,16 +1,14 @@
-class MotorEletrico {
+class MotorEletrico : Motor(){
 
     private var ligado: Boolean = false
-    private var nivelBateria: Boolean = false
+    private var nivelBateria = 1
 
-    fun ligar(){
-        ligado = true
+    fun gastandoEnergia() {
+        println("Gastando energia...")
+        nivelBateria--
     }
-    fun desligar(){
-        println("Motor desligado")
-        ligado = false
+    override fun temAutonomia(): Boolean{
+        nivelBateria > 0
     }
-    fun status(): Boolean{
-        return ligado
-    }
+
 }
