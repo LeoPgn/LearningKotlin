@@ -11,10 +11,7 @@ abstract class Motor {
     fun status(): Boolean{
         return ligado
     }
-    fun temAutonomia(): Boolean{
-        return true
-    }
-    fun gastando(){
+    abstract fun temAutonomia(): Boolean
 
-    }
+    abstract fun gastando()
 }

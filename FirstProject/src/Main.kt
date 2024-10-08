@@ -25,14 +25,14 @@ fun main(){
 //    motor.desligar()
 //    println("O motor está ${motor.status()}")
 //
-    val motor = MotorCombustao()
-//    val fusca = Carro(motor)
-//    fusca.ligar()
-//    fusca.anda()
-//    fusca.anda()
-//    fusca.anda()
+    val motorCombustao = MotorCombustao()
 
-    val tesla = Carro(motor)
+    val fusca = Carro(motorCombustao)
+    fusca.ligar()
+    fusca.anda()
+
+    val motorEletrico = MotorEletrico()
+    val tesla = Carro(motorEletrico)
     tesla.ligar()
     tesla.anda()
 }

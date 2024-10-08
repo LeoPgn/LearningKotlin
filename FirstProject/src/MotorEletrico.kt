@@ -1,14 +1,15 @@
 class MotorEletrico : Motor(){
 
     private var ligado: Boolean = false
-    private var nivelBateria = 1
+    private var nivelBateria: Int = 2
 
-    fun gastandoEnergia() {
+    override fun gastando(){
         println("Gastando energia...")
         nivelBateria--
     }
-    override fun temAutonomia(): Boolean{
-        nivelBateria > 0
+
+    override fun temAutonomia(): Boolean {
+        return nivelBateria > 0
     }
 
 }

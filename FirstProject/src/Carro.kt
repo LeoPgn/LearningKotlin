@@ -17,12 +17,18 @@ class Carro constructor(
                 println("Ligue o carro primeiro!")
             }
             !motor.temAutonomia() -> {
-                println("Coloque combustível")
-                motor.desligar()
+                when(motor) {
+                    is MotorEletrico -> println("Bateria baixa")
+                    is MotorCombustao -> println("Baixo combustível")
+                }
             }
             else -> {
                 motor.gastando()
-                println("Carro em movimento")
+                when(motor) {
+                    is MotorEletrico -> println("Carro em movimento")
+                    is MotorCombustao -> println("Carro em movimento com barulho")
+                }
+
             }
         }
     }

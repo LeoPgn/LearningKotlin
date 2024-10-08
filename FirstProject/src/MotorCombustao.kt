@@ -1,15 +1,25 @@
-class MotorCombustao : Motor(){
+abstract class MotorCombustao : Motor(){
 
     private var ligado: Boolean = false
-    private var nivelCombustivel: Int = 2
+    protected var nivelCombustivel: Int = 2
 
-    override fun temAutonomia(): Boolean{
+    override fun temAutonomia(): Boolean {
         return nivelCombustivel > 0
     }
 
-    fun gastandoCombustivel(){
-        println("Gastando combustivel, nivel agora é: $nivelCombustivel")
-        nivelCombustivel--
-    }
+    abstract override fun gastando()
+}
 
+class MotorGasolina : MotorCombustao(){
+    override fun gastando() {
+        nivelCombustivel--
+        println("Gastando combustivel, nivel agora é: $nivelCombustivel")
+    }
+}
+
+class MotorAlcool : MotorCombustao(){
+    override fun gastando() {
+        nivelCombustivel -= 2
+        println("Gastando combustivel, nivel agora é: $nivelCombustivel")
+    }
 }
